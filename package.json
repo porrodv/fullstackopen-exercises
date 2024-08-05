@@ -1,0 +1,33 @@
+{
+  "name": "fullstackopen-exercises",
+  "version": "1.0.0",
+  "description": "Exercises repository for Fullstackopen challenge",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/porrodv/fullstackopen-exercises"
+  },
+  "scripts": {
+    "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx}\"",
+    "format": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx}\""
+  },
+  "keywords": [
+    "javascript",
+    "fullstack"
+  ],
+  "author": "Alexander Porro <alex1020pl@gmail.com>",
+  "contributors": [
+    {
+      "name": "Alexander Porro",
+      "email": "alex1020pl@gmail.com",
+      "url": "https://github.com/porrodv"
+    }
+  ],
+  "devDependencies": {
+    "@eslint/js": "^8.57.0",
+    "@typescript-eslint/parser": "^7.17.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.8.0",
+    "prettier": "^3.3.3"
+  }
+}
