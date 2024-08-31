@@ -23,18 +23,18 @@ export default function Statistics({ comments }: StatisticsProps) {
   }, [comments, total]);
 
   return (
-    <section className="statistics">
+    <section className='statistics'>
       <h2>Statistics</h2>
 
       {comments.good + comments.neutral + comments.bad > 0 ? (
         <table>
           <tbody>
-            <StatisticLine text="Good" value={comments.good} />
-            <StatisticLine text="Neutral" value={comments.neutral} />
-            <StatisticLine text="Bad" value={comments.bad} />
-            <StatisticLine text="Total" value={total} />
-            <StatisticLine text="Average" value={average} />
-            <StatisticLine text="Positive" value={positivePer} />
+            <StatisticLine text='Good' value={comments.good} />
+            <StatisticLine text='Neutral' value={comments.neutral} />
+            <StatisticLine text='Bad' value={comments.bad} />
+            <StatisticLine text='Total' value={total} />
+            <StatisticLine text='Average' value={average} />
+            <StatisticLine text='Positive' value={positivePer} />
           </tbody>
         </table>
       ) : (

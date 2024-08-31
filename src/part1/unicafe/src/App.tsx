@@ -18,7 +18,7 @@ export default function App() {
 
   return (
     <main>
-      <section className="feedback">
+      <section className='feedback'>
         <h1>Give feedback</h1>
 
         <div>
@@ -26,7 +26,7 @@ export default function App() {
             onClick={() => {
               handleClick('good');
             }}
-            className="good"
+            className='good'
           >
             Good
           </Button>
@@ -34,7 +34,7 @@ export default function App() {
             onClick={() => {
               handleClick('neutral');
             }}
-            className="neutral"
+            className='neutral'
           >
             Neutral
           </Button>
@@ -42,7 +42,7 @@ export default function App() {
             onClick={() => {
               handleClick('bad');
             }}
-            className="bad"
+            className='bad'
           >
             Bad
           </Button>
