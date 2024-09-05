@@ -1,11 +1,12 @@
-import { CoursePart } from '../types/course.types';
+interface PartProps {
+  name: string;
+  exercises: number;
+}
 
-interface PartProps extends CoursePart {}
-
-export default function Part({ title, exercises }: PartProps) {
+export default function Part({ name, exercises }: PartProps) {
   return (
     <p>
-      {title} {exercises}
+      {name} {exercises}
     </p>
   );
 }

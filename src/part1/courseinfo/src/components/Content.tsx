@@ -8,8 +8,8 @@ interface ContentProps {
 export default function Content({ parts }: ContentProps) {
   return (
     <>
-      {parts.map(({ title, exercises }, i) => (
-        <Part key={i} title={title} exercises={exercises} />
+      {parts.map(({ id, name, exercises }) => (
+        <Part key={id} name={name} exercises={exercises} />
       ))}
     </>
   );

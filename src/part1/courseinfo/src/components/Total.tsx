@@ -1,3 +1,3 @@
 export default function Total({ total }: { total: number }) {
-  return <p>Number of exercises {total}</p>;
+  return <strong className='total'>Total of {total} exercises</strong>;
 }

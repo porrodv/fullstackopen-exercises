@@ -1,10 +1,22 @@
 import { Course } from '../types/course.types';
 
-export const COURSE_DETAILS: Course = {
-  title: 'Half Stack application development',
-  parts: [
-    { title: 'Fundamentals of React', exercises: 10 },
-    { title: 'Using props to pass data', exercises: 7 },
-    { title: 'State of a component', exercises: 14 },
-  ],
-};
+export const COURSES: Array<Course> = [
+  {
+    id: 1,
+    name: 'Half Stack application development',
+    parts: [
+      { id: 1, name: 'Fundamentals of React', exercises: 10 },
+      { id: 2, name: 'Using props to pass data', exercises: 7 },
+      { id: 3, name: 'State of a component', exercises: 14 },
+      { id: 4, name: 'Redux', exercises: 11 },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Node.js',
+    parts: [
+      { id: 1, name: 'Routing', exercises: 3 },
+      { id: 2, name: 'Middlewares', exercises: 7 },
+    ],
+  },
+];

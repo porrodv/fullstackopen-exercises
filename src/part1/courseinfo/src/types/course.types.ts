@@ -1,9 +1,11 @@
 export type CoursePart = {
-  title: string;
+  id: number;
+  name: string;
   exercises: number;
 };
 
 export type Course = {
-  title: string;
+  id: number;
+  name: string;
   parts: Array<CoursePart>;
 };
