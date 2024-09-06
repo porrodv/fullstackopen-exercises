@@ -1,0 +1,52 @@
+* {
+  font-family: system-ui;
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0.5rem 0.8rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+input {
+  border: 1px solid rgb(202, 201, 201);
+  border-radius: 6px;
+  padding: 0.2rem 0.8rem;
+}
+
+h2 {
+  color: rgb(103, 103, 103);
+}
+
+button {
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: rgb(89, 89, 193);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: rgb(30, 30, 186);
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#new-person__title {
+  margin-top: 2.5rem;
+}
+
+.no-results {
+  color: red;
+  font-weight: 700;
+}
