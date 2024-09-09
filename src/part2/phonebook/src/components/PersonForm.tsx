@@ -1,35 +1,53 @@
 import { FormEvent, useState } from 'react';
-import { Person } from '../types/person.types';
+import { NewPerson, Person } from '../types/person.types';
 
 interface PersonFormProps {
   persons: Array<Person>;
-  updatePerson: (newPerson: Person) => void;
+  createPerson: (newPerson: NewPerson) => void;
+  updatePerson: (id: number, newPerson: NewPerson) => void;
 }
 
-export default function PersonForm({ persons, updatePerson }: PersonFormProps) {
+export default function PersonForm({
+  persons,
+  createPerson,
+  updatePerson,
+}: PersonFormProps) {
   const [newName, setNewName] = useState<string>('');
   const [newNumber, setNewNumber] = useState<string>('');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    if (verifyPersonExists(newName)) {
-      alert(`${newName} is already added to phonebook`);
+    if (newName === '') return alert('name field cannot be empty');
+
+    const existingPerson = verifyPersonExists(newName);
+
+    if (existingPerson) {
+      if (newNumber === '') return alert('number field cannot be empty');
+
+      const message = `${newName} is already added to phonebook, replace the old number with a new one?`;
+
+      if (!window.confirm(message)) return;
+
+      updatePerson(existingPerson.id, {
+        name: existingPerson.name,
+        number: newNumber,
+      });
+      clearInputs();
       return;
     }
 
-    const newPerson = {
-      id: persons.length + 1,
+    const newPerson: NewPerson = {
       name: newName,
       number: newNumber,
     };
 
-    updatePerson(newPerson);
+    createPerson(newPerson);
     clearInputs();
   };
 
-  function verifyPersonExists(name: string): boolean {
-    return persons.some((e) => e.name === name);
+  function verifyPersonExists(name: string): Person | undefined {
+    return persons.find((e) => e.name === name);
   }
 
   function clearInputs(): void {
@@ -62,7 +80,9 @@ export default function PersonForm({ persons, updatePerson }: PersonFormProps) {
         />
       </div>
       <div>
-        <button type='submit'>Add</button>
+        <button className='add-btn' type='submit'>
+          Add
+        </button>
       </div>
     </form>
   );

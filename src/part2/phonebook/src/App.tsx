@@ -1,23 +1,59 @@
 import { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
-import { Person } from './types/person.types';
+import { NewPerson, Person } from './types/person.types';
 import { Filter, PersonForm, PersonList } from './components';
-
-const BASE_PATH = 'http://localhost:3005/persons';
+import {
+  createPerson,
+  deletePerson,
+  getAllPersons,
+  updatePerson,
+} from './services/person.services';
 
 export default function App() {
   const [persons, setPersons] = useState<Array<Person>>();
   const [filteredPersons, setFilteredPersons] = useState<Array<Person>>();
 
-  const updatePersons = (newPerson: Person) => {
-    setPersons((prevPersons) => prevPersons?.concat(newPerson));
+  const handleCreate = async (newPerson: NewPerson) => {
+    try {
+      const createdPerson = await createPerson(newPerson);
+      setPersons((prevPersons) => prevPersons?.concat(createdPerson));
+    } catch (error) {
+      console.error(error);
+      alert('error creating person');
+    }
+  };
+
+  const handleUpdate = async (id: number, newPerson: NewPerson) => {
+    try {
+      const updatedPerson = await updatePerson(id, {
+        name: newPerson.name,
+        number: newPerson.number,
+      });
+      setPersons((prevPersons) =>
+        prevPersons?.map((person) =>
+          person.id === id ? updatedPerson : person,
+        ),
+      );
+    } catch (error) {
+      console.error(error);
+      alert(`error updating person's number`);
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    try {
+      const deletedPerson = await deletePerson(id);
+      setPersons((prevPersons) =>
+        prevPersons?.filter((person) => person.id !== deletedPerson.id),
+      );
+    } catch (error) {
+      console.error(error);
+      alert('error deleting person');
+    }
   };
 
   const fetchData = useCallback(async () => {
-    const response = await axios.get(BASE_PATH);
-    const data: Array<Person> = response.data;
-
-    setPersons(data);
+    const persons = await getAllPersons();
+    setPersons(persons);
   }, []);
 
   useEffect(() => {
@@ -34,14 +70,22 @@ export default function App() {
 
   return (
     <main>
-      <h1>Phonebook</h1>
-      <Filter persons={persons} onFilter={setFilteredPersons} />
+      <article>
+        <h1>Phonebook</h1>
+        <Filter persons={persons} onFilter={setFilteredPersons} />
 
-      <h2 id='new-person__title'>Add a new person</h2>
-      <PersonForm persons={persons} updatePerson={updatePersons} />
+        <h2 id='new-person__title'>Add a new person</h2>
+        <PersonForm
+          persons={persons}
+          createPerson={handleCreate}
+          updatePerson={handleUpdate}
+        />
+      </article>
 
-      <h2>Numbers</h2>
-      <PersonList persons={filteredPersons} />
+      <aside>
+        <h2 className='person-list__title'>Numbers</h2>
+        <PersonList persons={filteredPersons} deletePerson={handleDelete} />
+      </aside>
     </main>
   );
 }
