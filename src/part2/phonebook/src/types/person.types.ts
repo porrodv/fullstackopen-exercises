@@ -1,7 +1,9 @@
-export type Person = {
+type Person = {
   id: number;
   name: string;
   number: string;
 };
 
-export type NewPerson = Omit<Person, 'id'>;
+type NewPerson = Omit<Person, 'id'>;
+
+export type { Person, NewPerson };

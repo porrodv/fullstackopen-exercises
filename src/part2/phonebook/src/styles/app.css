@@ -56,6 +56,7 @@ form {
 }
 
 main {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: start;
@@ -83,6 +84,33 @@ main {
   div {
     display: grid;
     place-items: center;
+  }
+}
+
+#notification {
+  position: fixed;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 1.4rem 1.6rem;
+  top: 20px;
+  right: 20px;
+  border: 4px solid gray;
+
+  &.success {
+    background-color: rgb(167, 255, 158);
+    border-color: green;
+    color: green;
+  }
+  &.error {
+    background-color: rgb(255, 189, 189);
+    border-color: red;
+    color: red;
+  }
+  &.warning {
+    background-color: rgb(255, 243, 199);
+    border-color: orange;
+    color: orange;
   }
 }
 
