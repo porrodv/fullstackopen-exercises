@@ -8,7 +8,6 @@ import {
   getAllPersons,
   updatePerson,
 } from './services/person.services';
-import { AxiosError, AxiosResponse } from 'axios';
 
 export default function App() {
   const [persons, setPersons] = useState<Array<Person>>();
