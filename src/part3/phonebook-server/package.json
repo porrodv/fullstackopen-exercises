@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "build:ui": "rm -rf dist && cd ../../part2/phonebook && npm install && npm run build && cp -r dist ../../part3/phonebook-server",
-    "start": "npm run build:ui && npm run build && node dist/app.js",
+    "start": "npm run build && node dist/app.js",
     "dev": "nodemon src/app.ts"
   },
   "dependencies": {
