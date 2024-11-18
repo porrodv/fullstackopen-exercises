@@ -1,15 +1,17 @@
 import { Request, Response } from 'express';
-import dotenv from 'dotenv';
 import { Person } from './types/person.types';
 import { ErrorResponse } from './types/api.types';
-import { loggerMiddleware } from './middlewares/logger.middleware';
-dotenv.config();
 
+require('dotenv').config();
 const express = require('express');
+const logger = require('./middlewares/logger.middleware');
+const cors = require('./middlewares/cors.middleware');
 const app = express();
 
 app.use(express.json());
-app.use(loggerMiddleware);
+app.use(logger);
+app.use(cors);
+app.use(express.static('dist'));
 
 let persons: Person[] = [
   {

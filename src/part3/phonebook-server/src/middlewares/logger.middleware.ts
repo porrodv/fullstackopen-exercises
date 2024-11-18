@@ -1,7 +1,9 @@
 const morgan = require('morgan');
 
-export const loggerMiddleware = morgan(function (tokens, req, res) {
-  const body = tokens.body(req, res);
+const loggerOptions = function (tokens, req, res) {
+  const body = req.body;
+
+  const isEmptyBody = body && Object.keys(body).length === 0;
 
   return [
     tokens.method(req, res),
@@ -11,6 +13,8 @@ export const loggerMiddleware = morgan(function (tokens, req, res) {
     '-',
     tokens['response-time'](req, res),
     'ms',
-    body ? body : '',
+    !isEmptyBody ? JSON.stringify(body) : '',
   ].join(' ');
-});
+};
+
+module.exports = morgan(loggerOptions);

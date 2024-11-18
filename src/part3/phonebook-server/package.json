@@ -5,11 +5,13 @@
   "main": "src/app.ts",
   "scripts": {
     "build": "npx tsc",
+    "build:ui": "rm -rf dist && cd ../../part2/phonebook && npm install && npm run build && cp -r dist ../../part3/phonebook-server",
     "start": "npm run build && node dist/app.js",
     "dev": "nodemon src/app.ts"
   },
   "dependencies": {
     "@types/morgan": "^1.9.9",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "morgan": "^1.10.0"
