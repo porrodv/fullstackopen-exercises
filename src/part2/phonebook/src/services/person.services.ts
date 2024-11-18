@@ -4,8 +4,12 @@ import { Person, NewPerson } from '../types/person.types';
 // Local json-server
 // const BASE_PATH = 'http://localhost:3005/persons';
 
-// Express.js API
-const BASE_PATH = 'http://localhost:3001/api/persons';
+// Express.js local API
+// const BASE_PATH = 'http://localhost:3001/api/persons';
+
+// Express.js web API
+const BASE_PATH =
+  'https://phonebook-fullstack-app-express-and-react.onrender.com/api/persons';
 
 export const getAllPersons = async (): Promise<Array<Person>> => {
   const response = await axios.get(BASE_PATH);
