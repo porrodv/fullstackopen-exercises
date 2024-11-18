@@ -1,19 +1,23 @@
 import axios from 'axios';
 import { Person, NewPerson } from '../types/person.types';
 
-const BASE_PATH = 'http://localhost:3005/persons';
+// Local json-server
+// const BASE_PATH = 'http://localhost:3005/persons';
 
-const getAllPersons = async (): Promise<Array<Person>> => {
+// Express.js API
+const BASE_PATH = 'http://localhost:3001/api/persons';
+
+export const getAllPersons = async (): Promise<Array<Person>> => {
   const response = await axios.get(BASE_PATH);
   return response.data;
 };
 
-const createPerson = async (newPerson: NewPerson): Promise<Person> => {
+export const createPerson = async (newPerson: NewPerson): Promise<Person> => {
   const response = await axios.post(BASE_PATH, newPerson);
   return response.data;
 };
 
-const updatePerson = async (
+export const updatePerson = async (
   id: number,
   newPerson: NewPerson,
 ): Promise<Person> => {
@@ -21,9 +25,7 @@ const updatePerson = async (
   return response.data;
 };
 
-const deletePerson = async (id: number) => {
+export const deletePerson = async (id: number) => {
   const response = await axios.delete(`${BASE_PATH}/${id}`);
   return response.data;
 };
-
-export { getAllPersons, createPerson, updatePerson, deletePerson };
