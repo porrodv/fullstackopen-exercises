@@ -1,6 +1,11 @@
 const cors = require('cors');
 
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:3001'];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3001',
+  'https://phonebook-fullstack-app-express-and-react.onrender.com',
+  'https://phonebook-fullstack-app-express-and-react.onrender.com:3001',
+];
 
 // Config Cors
 const corsOptions = {
