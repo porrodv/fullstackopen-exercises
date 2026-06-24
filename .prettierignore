@@ -1,5 +1,25 @@
-node_modules
-build
-dist
-*.md
+# Build output
+dist/
+build/
+coverage/
+
+# Dependencies
+node_modules/
+
+# Generated / minified
+*.min.js
+*.min.css
+
+# Lock files
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+
+# Data / generated
+**/db.json
+**/postman/**
+
+# Others
+*.md
+*.log
