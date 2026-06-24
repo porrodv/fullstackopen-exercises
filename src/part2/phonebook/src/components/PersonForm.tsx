@@ -1,5 +1,5 @@
-import { FormEvent, useState } from 'react';
-import { NewPerson, Person } from '../types/person.types';
+import { useState, type FormEvent } from 'react';
+import { type NewPerson, type Person } from '../types/person.types';
 
 interface PersonFormProps {
   persons: Array<Person>;

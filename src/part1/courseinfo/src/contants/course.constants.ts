@@ -1,4 +1,4 @@
-import { Course } from '../types/course.types';
+import { type Course } from '../types/course.types';
 
 export const COURSES: Array<Course> = [
   {

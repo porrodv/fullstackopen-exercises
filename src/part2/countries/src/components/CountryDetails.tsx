@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Country } from '../types/country.types';
 import { getWeatherByCountryName } from '../services/weather.services';
-import { WeatherDetails } from '../types/weather.types';
+import { type Country } from '../types/country.types';
+import { type WeatherDetails } from '../types/weather.types';
 
 const WEATHER_IMAGE_BASE_URL = 'https://openweathermap.org/img/wn';
 
-interface CountryDetailsProps
-  extends Pick<Country, 'name' | 'capital' | 'area' | 'languages' | 'flags'> {}
+interface CountryDetailsProps extends Pick<
+  Country,
+  'name' | 'capital' | 'area' | 'languages' | 'flags'
+> {}
 
 export default function CountryDetails({
   name,
@@ -21,10 +23,10 @@ export default function CountryDetails({
     try {
       const weatherInfo = await getWeatherByCountryName(name.common);
       setWeather(weatherInfo);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
     }
-  }, []);
+  }, [name.common]);
 
   useEffect(() => {
     fetchData();

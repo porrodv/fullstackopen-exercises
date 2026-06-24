@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
-import { Person } from './types/person.types';
 import dotenv from 'dotenv';
-import { ErrorResponse } from './types/api.types';
+import { type Request, type Response } from 'express';
+import { type ErrorResponse } from './types/api.types';
+import { type Person } from './types/person.types';
+
 dotenv.config();
 
 const express = require('express');
@@ -131,5 +132,6 @@ function isPersonNameExists(name: string) {
 
 const PORT = process.env.APP_PORT;
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console -- server startup message
   console.log(`Server running on port ${PORT}`);
 });

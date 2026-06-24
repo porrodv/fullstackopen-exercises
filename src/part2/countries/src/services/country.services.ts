@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { COUNTRY_API_URL, COUNTRY_SERVICE } from '../constants/api.constants';
-import { Country } from '../types/country.types';
+import { type Country } from '../types/country.types';
 
 const getAllCountries = async (): Promise<Array<Country>> => {
   const response = await axios.get(

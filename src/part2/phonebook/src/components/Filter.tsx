@@ -1,4 +1,4 @@
-import { Person } from '../types/person.types';
+import { type Person } from '../types/person.types';
 
 interface FilterProps {
   persons: Array<Person>;

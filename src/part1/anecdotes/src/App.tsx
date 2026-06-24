@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Anecdote } from './types/anecdote.types';
+import { useState } from 'react';
 import { AnecdoteCard, Button } from './components';
 import { ANECDOTES } from './constants/anecdote.constants';
+import { type Anecdote } from './types/anecdote.types';
 import { getRandomNumber } from './utils/math.utils';
 
 export default function App() {

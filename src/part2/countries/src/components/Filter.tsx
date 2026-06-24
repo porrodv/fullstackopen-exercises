@@ -1,4 +1,4 @@
-import { Country } from '../types/country.types';
+import { type Country } from '../types/country.types';
 
 interface FilterProps {
   countries: Array<Country>;

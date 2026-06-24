@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Person, NewPerson } from '../types/person.types';
+import { type NewPerson, type Person } from '../types/person.types';
 
 const BASE_PATH = 'http://localhost:3005/persons';
 
@@ -26,4 +26,4 @@ const deletePerson = async (id: number) => {
   return response.data;
 };
 
-export { getAllPersons, createPerson, updatePerson, deletePerson };
+export { createPerson, deletePerson, getAllPersons, updatePerson };
