@@ -67,7 +67,11 @@ export default function App() {
     try {
       const deletedPerson = await deletePerson(id);
       setPersons((prevPersons) =>
-        prevPersons?.filter((person) => person.id !== deletedPerson.id),
+        prevPersons?.filter((person) => person.id !== id),
+      );
+      showNotification(
+        'warning',
+        `${deletedPerson ? deletedPerson.name : 'Person'} deleted correctly`,
       );
       showNotification('warning', `${deletedPerson.name} deleted correctly`);
     } catch (error: unknown) {

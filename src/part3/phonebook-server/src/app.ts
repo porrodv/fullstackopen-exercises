@@ -5,10 +5,16 @@ import { type Person } from './types/person.types';
 
 dotenv.config();
 
+require('dotenv').config();
 const express = require('express');
+const logger = require('./middlewares/logger.middleware');
+const cors = require('./middlewares/cors.middleware');
 const app = express();
 
 app.use(express.json());
+app.use(logger);
+app.use(cors);
+app.use(express.static('dist'));
 
 let persons: Person[] = [
   {
