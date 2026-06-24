@@ -20,7 +20,6 @@ const sharedRules = {
   ],
   'no-console': ['warn', { allow: ['warn', 'error'] }],
   'no-debugger': 'error',
-  'no-alert': 'error',
   'no-var': 'error',
   'prefer-const': 'error',
   'prefer-arrow-callback': 'error',

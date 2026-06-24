@@ -11,7 +11,9 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "fix:src": "eslint \"src/part1\" \"src/part2\" \"src/part3\" --fix && organize-imports-cli \"src/part1\" \"src/part2\" \"src/part3\" && prettier --write \"src/part1\" \"src/part2\" \"src/part3\"",
+    "fix": "eslint . --fix && organize-imports-cli \"src/part1\" \"src/part2\" \"src/part3\" && prettier --write ."
   },
   "keywords": [
     "javascript",
@@ -35,6 +37,7 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "eslint-plugin-unicorn": "^64.0.0",
     "eslint-plugin-unused-imports": "^4.4.1",
+    "organize-imports-cli": "^1.0.2",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3"
   }
