@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Country } from './types/country.types';
-import { CountryList, CountryDetails, Filter } from './components';
+import { CountryDetails, CountryList, Filter } from './components';
 import { getAllCountries } from './services/country.services';
+import { type Country } from './types/country.types';
 
 export default function App() {
   const [countries, setCountries] = useState<Array<Country> | null>(null);

@@ -1,5 +1,5 @@
-import { COURSES } from './contants/course.constants';
 import { Course } from './components';
+import { COURSES } from './contants/course.constants';
 
 export default function App() {
   return (

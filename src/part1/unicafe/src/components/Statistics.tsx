@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { CommentList } from '../types/comment.types';
+import { type CommentList } from '../types/comment.types';
 import StatisticLine from './StatisticLine';
 
 interface StatisticsProps {

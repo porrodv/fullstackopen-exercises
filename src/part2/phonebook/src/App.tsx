@@ -1,13 +1,14 @@
+import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
-import { NewPerson, Person } from './types/person.types';
-import { NotificationType } from './types/notification.types';
-import { Filter, PersonForm, PersonList, Notification } from './components';
+import { Filter, Notification, PersonForm, PersonList } from './components';
 import {
   createPerson,
   deletePerson,
   getAllPersons,
   updatePerson,
 } from './services/person.services';
+import { type NotificationType } from './types/notification.types';
+import { type NewPerson, type Person } from './types/person.types';
 
 export default function App() {
   const [persons, setPersons] = useState<Array<Person>>();
@@ -72,10 +73,11 @@ export default function App() {
         'warning',
         `${deletedPerson ? deletedPerson.name : 'Person'} deleted correctly`,
       );
-    } catch (error: any) {
+      showNotification('warning', `${deletedPerson.name} deleted correctly`);
+    } catch (error: unknown) {
       console.error(error);
 
-      if (error.status === 404) {
+      if (axios.isAxiosError(error) && error.response?.status === 404) {
         showNotification(
           'error',
           'Person has already been removed from server',

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Comment, CommentList } from './types/comment.types';
 import { Button, Statistics } from './components';
+import { type Comment, type CommentList } from './types/comment.types';
 
 export default function App() {
   const [comments, setComments] = useState<CommentList>({

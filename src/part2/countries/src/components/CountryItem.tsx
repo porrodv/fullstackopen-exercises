@@ -1,5 +1,5 @@
 import { getCountryByName } from '../services/country.services';
-import { Country } from '../types/country.types';
+import { type Country } from '../types/country.types';
 
 interface CountryItemProps {
   name: string;
@@ -11,7 +11,7 @@ export default function CountryItem({ name, onShow }: CountryItemProps) {
     try {
       const country = await getCountryByName(name);
       onShow([country]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
     }
   };

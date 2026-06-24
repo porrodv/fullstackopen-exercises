@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Person, NewPerson } from '../types/person.types';
+import { type NewPerson, type Person } from '../types/person.types';
 
 // Local json-server
 // const BASE_PATH = 'http://localhost:3005/persons';
